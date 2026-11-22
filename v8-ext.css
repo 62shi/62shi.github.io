@@ -1,0 +1,674 @@
+/* ============================================================
+   v8-ext.css —— 统一配色 / 朋友圈全屏 / 五种日夜模式 /
+                新增组件与角标样式
+   ============================================================ */
+
+/* ---------------- 需求23：所有功能页配色与主页统一 ---------------- */
+.modal-content,
+.hx-panel,
+.settings-section,
+.lp-card,
+.gm-tab,
+.env-letter-item,
+.settings-card,
+.hx-item {
+    --primary-bg: #f2f7fc;
+    --secondary-bg: #ffffff;
+    --header-bg: rgba(255, 255, 255, .88);
+    --input-area-bg: rgba(255, 255, 255, .9);
+    --border-color: rgba(120, 150, 190, .18);
+    --text-primary: #4a5568;
+    --text-secondary: #8a94a6;
+    --message-received-bg: rgba(228, 239, 251, .9);
+    --message-received-text: #4a5568;
+    --accent-color-rgb: 143, 174, 214;
+}
+.modal-content {
+    background: linear-gradient(165deg, #ffffff 0%, #f4f9fd 52%, #eef5fc 100%) !important;
+    border: 1px solid rgba(120, 150, 190, .18) !important;
+    color: #4a5568 !important;
+    box-shadow: 0 18px 48px rgba(120, 155, 200, .22) !important;
+}
+.modal-title, .settings-section-title, .gm-label { color: #5b6b81 !important; }
+.hx-panel {
+    background: linear-gradient(165deg, #ffffff 0%, #f5f9fd 60%, #eef5fc 100%) !important;
+    border: 1px solid rgba(120, 150, 190, .18) !important;
+    color: #4a5568 !important;
+}
+.settings-section {
+    background: rgba(255, 255, 255, .7) !important;
+    border: 1px solid rgba(120, 150, 190, .16) !important;
+    border-radius: 18px !important;
+}
+.lp-card {
+    background: rgba(255, 255, 255, .78) !important;
+    border: 1px solid rgba(120, 150, 190, .18) !important;
+    color: #5b6b81 !important;
+}
+.lp-card i { color: #8fb0d6 !important; }
+.settings-card, .hx-item {
+    background: rgba(255, 255, 255, .74) !important;
+    border: 1px solid rgba(120, 150, 190, .16) !important;
+    color: #5b6b81 !important;
+}
+.env-letter-item {
+    background: rgba(255, 255, 255, .82) !important;
+    border: 1px solid rgba(120, 150, 190, .16) !important;
+    color: #5b6b81 !important;
+}
+.modal-input, .hx-input, .hx-textarea, .mm-compose textarea,
+.mf-cover-url input, .mf-cmtbox input {
+    background: rgba(255, 255, 255, .9) !important;
+    border: 1px solid rgba(120, 150, 190, .2) !important;
+    color: #4a5568 !important;
+}
+.modal-btn, .hx-btn, .gm-mini, .gm-pbtn, .mm-mat-btn, .mf-act {
+    color: #5b6b81 !important;
+}
+.modal-btn-primary, .hx-btn.primary, .gm-pbtn:not(.ghost) {
+    background: linear-gradient(135deg, #a9c8ea, #c3d8f1) !important;
+    color: #fff !important;
+    border-color: transparent !important;
+}
+.mm-mat-btn, .mf-cover-btn, .mf-refresh {
+    background: rgba(163, 195, 230, .18) !important;
+    color: #6b87a8 !important;
+    border: 1px solid rgba(120, 150, 190, .18) !important;
+}
+
+/* ---------------- 需求12：五种日夜模式都有明显变化 ---------------- */
+html[data-hx-mode="dusk"] {
+    --primary-bg: #fff4e9 !important;
+    --secondary-bg: #ffead9 !important;
+    --header-bg: #ffe9d6 !important;
+    --input-area-bg: #ffeede !important;
+    --border-color: rgba(214, 158, 116, .3) !important;
+    --text-primary: #6b4a38 !important;
+    --text-secondary: #a5826d !important;
+    --message-received-bg: #fff6ec !important;
+    --message-sent-bg: #ffcfae !important;
+    --message-sent-text: #6b4a38 !important;
+}
+html[data-hx-mode="dusk"] body,
+html[data-hx-mode="dusk"] #home-screen {
+    background: linear-gradient(170deg, #ffdfc4 0%, #fff0e2 40%, #ffe7d4 100%) !important;
+}
+html[data-hx-mode="dusk"] .modal-content,
+html[data-hx-mode="dusk"] .hx-panel {
+    background: linear-gradient(165deg, #fffaf4 0%, #fff0e2 60%, #ffe6d3 100%) !important;
+}
+html[data-hx-mode="twilight"] {
+    --primary-bg: #f6f0ff !important;
+    --secondary-bg: #ece0ff !important;
+    --header-bg: #efe5ff !important;
+    --input-area-bg: #f3ebff !important;
+    --border-color: rgba(160, 132, 205, .3) !important;
+    --text-primary: #4b3d67 !important;
+    --text-secondary: #8b7ba8 !important;
+    --message-received-bg: #f8f2ff !important;
+    --message-sent-bg: #dcc8ff !important;
+    --message-sent-text: #4b3d67 !important;
+}
+html[data-hx-mode="twilight"] body,
+html[data-hx-mode="twilight"] #home-screen {
+    background: linear-gradient(170deg, #d8c6f5 0%, #eee3ff 40%, #f2e7ff 100%) !important;
+}
+html[data-hx-mode="twilight"] .modal-content,
+html[data-hx-mode="twilight"] .hx-panel {
+    background: linear-gradient(165deg, #fcf8ff 0%, #f2e9ff 60%, #e9dcff 100%) !important;
+}
+html[data-hx-mode="rain"] {
+    --primary-bg: #eef4f9 !important;
+    --secondary-bg: #dfeaf4 !important;
+    --header-bg: #e7f0f7 !important;
+    --input-area-bg: #e9f2f8 !important;
+    --border-color: rgba(112, 148, 178, .32) !important;
+    --text-primary: #3c4f61 !important;
+    --text-secondary: #7790a6 !important;
+    --message-received-bg: #f6fafd !important;
+    --message-sent-bg: #bcd7ec !important;
+    --message-sent-text: #3c4f61 !important;
+}
+html[data-hx-mode="rain"] body,
+html[data-hx-mode="rain"] #home-screen {
+    background: linear-gradient(170deg, #c3d6e6 0%, #dde9f3 40%, #e7f0f7 100%) !important;
+}
+html[data-hx-mode="rain"] .modal-content,
+html[data-hx-mode="rain"] .hx-panel {
+    background: linear-gradient(165deg, #f9fcfe 0%, #eaf2f9 60%, #dfeaf4 100%) !important;
+}
+html[data-hx-mode="day"] {
+    --primary-bg: #f2f7fc !important;
+    --secondary-bg: #ffffff !important;
+    --header-bg: #ffffff !important;
+    --input-area-bg: #ffffff !important;
+    --border-color: rgba(120, 150, 190, .18) !important;
+    --text-primary: #4a5568 !important;
+    --text-secondary: #8a94a6 !important;
+    --message-received-bg: #e9f2fb !important;
+    --message-sent-bg: #a9c8ea !important;
+    --message-sent-text: #ffffff !important;
+}
+html[data-hx-mode="day"] body,
+html[data-hx-mode="day"] #home-screen {
+    background: linear-gradient(170deg, #dbeafe 0%, #e8f2fb 32%, #f4f8fc 62%, #eef5fb 100%) !important;
+}
+html[data-hx-mode="night"] {
+    --primary-bg: #1b2330 !important;
+    --secondary-bg: #232d3d !important;
+    --header-bg: #1e2735 !important;
+    --input-area-bg: #1e2735 !important;
+    --border-color: rgba(255, 255, 255, .1) !important;
+    --text-primary: #dce6f2 !important;
+    --text-secondary: #94a6ba !important;
+    --message-received-bg: #2b3748 !important;
+    --message-received-text: #dce6f2 !important;
+    --message-sent-bg: #47648a !important;
+    --message-sent-text: #ffffff !important;
+}
+html[data-hx-mode="night"] body,
+html[data-hx-mode="night"] #home-screen {
+    background: linear-gradient(170deg, #1a2231 0%, #222d3e 45%, #1c2736 100%) !important;
+}
+html[data-hx-mode="night"] .modal-content,
+html[data-hx-mode="night"] .hx-panel,
+html[data-hx-mode="night"] .settings-section,
+html[data-hx-mode="night"] .settings-card,
+html[data-hx-mode="night"] .hx-item,
+html[data-hx-mode="night"] .lp-card,
+html[data-hx-mode="night"] .env-letter-item {
+    background: linear-gradient(165deg, #26313f 0%, #202b39 100%) !important;
+    color: #dce6f2 !important;
+    border-color: rgba(255, 255, 255, .1) !important;
+}
+html[data-hx-mode="night"] .modal-input,
+html[data-hx-mode="night"] .hx-input,
+html[data-hx-mode="night"] .hx-textarea,
+html[data-hx-mode="night"] .mm-compose textarea {
+    background: rgba(255, 255, 255, .07) !important;
+    color: #dce6f2 !important;
+}
+/* 模式色卡选中态更明显 */
+.hx-mode-card.on { border-color: #8fb0d6 !important; background: rgba(143, 176, 214, .14) !important; }
+
+/* ---------------- 需求5：朋友圈全屏 ---------------- */
+body.v8-mf-full #love-panel-modal { padding: 0 !important; align-items: stretch !important; }
+body.v8-mf-full #love-panel-modal .modal-content {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+}
+body.v8-mf-full #lp-grid { display: none !important; }
+body.v8-mf-full #lp-body {
+    display: block !important;
+    flex: 1 !important;
+    overflow-y: auto !important;
+    padding: 0 0 90px !important;
+    max-height: none !important;
+}
+body.v8-mf-full .lp-head {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 5 !important;
+    background: rgba(255, 255, 255, .9) !important;
+    backdrop-filter: blur(12px);
+    padding: 14px 16px !important;
+}
+body.v8-mf-full .mf-cover { height: 220px !important; }
+body.v8-mf-full .mf-tabs { padding: 10px 12px !important; }
+body.v8-mf-full .modal-buttons {
+    position: fixed !important;
+    bottom: 12px !important;
+    left: 0 !important;
+    right: 0 !important;
+    justify-content: center !important;
+    z-index: 8 !important;
+    pointer-events: none !important;
+}
+body.v8-mf-full .modal-buttons .modal-btn { pointer-events: auto !important; }
+
+/* ---------------- 新组件样式 ---------------- */
+.hg-mood-emoji { font-size: 30px; line-height: 1; display: block; }
+.hg-music-ctrls {
+    position: relative; z-index: 2;
+    display: flex; align-items: center; justify-content: center; gap: 4px;
+    width: 100%; height: 100%;
+}
+.hg-music-ctrls button {
+    border: none; background: rgba(255, 255, 255, .7);
+    color: #7d9cc0; border-radius: 50%;
+    width: 22px; height: 22px; font-size: 10px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; padding: 0;
+}
+.hg-music-ctrls button:active { transform: scale(.9); }
+.hg-widget[data-hgwidget="music"] .hg-widget-tile { position: relative; }
+
+/* 分人切换 tab */
+.hx-whotabs { display: flex; gap: 8px; margin-bottom: 12px; }
+.hx-whotab {
+    flex: 1; padding: 9px 6px; border-radius: 14px; font-size: 12px;
+    border: 1px solid var(--hg-line, rgba(120,150,190,.2));
+    background: rgba(255, 255, 255, .7); color: #7f8fa3;
+    font-family: inherit; cursor: pointer;
+}
+.hx-whotab.on { background: linear-gradient(135deg, #a9c8ea, #c3d8f1); color: #fff; border-color: transparent; }
+
+/* 返回 🤍 */
+.hx-backus, .v8-back-us {
+    border: none; background: rgba(163, 195, 230, .18); color: #6b87a8;
+    border-radius: 12px; padding: 6px 10px; font-size: 12px;
+    font-family: inherit; cursor: pointer; margin-right: 6px; flex-shrink: 0;
+}
+.v8-back-us { display: block; margin: 0 0 10px; align-self: flex-start; }
+
+/* 同意请求卡片（聊天框内） */
+.v8-consent {
+    background: rgba(255, 255, 255, .92);
+    border: 1px solid rgba(120, 150, 190, .22);
+    border-radius: 16px; padding: 11px 13px; margin: 6px auto;
+    max-width: 82%; box-shadow: 0 6px 18px rgba(120, 155, 200, .14);
+    color: #5b6b81;
+}
+.v8-consent-t { font-size: 12.5px; font-weight: 600; line-height: 1.5; }
+.v8-consent-d { font-size: 10.5px; color: #9aa9bb; margin-top: 3px; }
+.v8-consent-b { display: flex; gap: 8px; margin-top: 9px; }
+.v8-consent-b button {
+    flex: 1; border: none; border-radius: 10px; padding: 6px 0;
+    font-size: 11.5px; font-family: inherit; cursor: pointer;
+    background: linear-gradient(135deg, #a9c8ea, #c3d8f1); color: #fff;
+}
+.v8-consent-b button.ghost { background: rgba(120, 150, 190, .12); color: #7f8fa3; }
+.v8-consent-r { font-size: 11.5px; color: #8fb0d6; }
+.v8-sys { font-size: 11px; color: #8a94a6; text-align: center; }
+
+/* 悬浮按钮：待同意 / 禁言 */
+#v8-consent-fab, #v8-mute-fab {
+    position: fixed; z-index: 1850;
+    right: 14px; width: 42px; height: 42px; border-radius: 50%;
+    border: 1px solid rgba(120, 150, 190, .2);
+    background: rgba(255, 255, 255, .92); color: #7d9cc0;
+    box-shadow: 0 6px 18px rgba(120, 155, 200, .2);
+    font-size: 15px; cursor: pointer; display: flex;
+    align-items: center; justify-content: center;
+}
+#v8-consent-fab { bottom: 190px; }
+#v8-mute-fab { bottom: 138px; }
+#v8-consent-fab .v8-fab-n {
+    position: absolute; top: -4px; right: -4px; min-width: 17px; height: 17px;
+    border-radius: 9px; background: #ef8a9a; color: #fff;
+    font-size: 10px; line-height: 17px; text-align: center; padding: 0 3px;
+}
+#v8-mute-fab.on { background: #ef8a9a; color: #fff; }
+
+
+/* 未读角标 */
+.v8-badge {
+    position: absolute; top: -5px; right: -5px;
+    min-width: 18px; height: 18px; border-radius: 9px;
+    background: #ef8a9a; color: #fff; font-size: 10px;
+    line-height: 18px; text-align: center; padding: 0 4px;
+    box-shadow: 0 2px 6px rgba(239, 138, 154, .4);
+}
+.hg-widget-tile { position: relative; }
+.v8-unread-tag {
+    margin-left: 6px; font-size: 10px; color: #ef8a9a;
+    background: rgba(239, 138, 154, .12); border-radius: 8px; padding: 2px 6px;
+    white-space: nowrap;
+}
+
+/* 游戏结果 */
+.hx-game-result {
+    font-size: 10.5px; color: #6b87a8; margin: 4px 0 0 44px;
+    background: rgba(163, 195, 230, .12); border-radius: 8px; padding: 4px 8px;
+}
+
+/* 心情 / 头像 / 字卡分组 / 信箱 / 拥有群聊 */
+.v8-mood-now { font-size: 54px; text-align: center; padding: 10px 0; }
+.v8-mood-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
+.v8-mood-cell {
+    border: 1px solid rgba(120, 150, 190, .18); background: rgba(255, 255, 255, .78);
+    border-radius: 12px; font-size: 22px; padding: 6px 0; cursor: pointer;
+}
+.v8-av-now { width: 70px; height: 70px; border-radius: 50%; overflow: hidden; background: rgba(120,150,190,.12); display: flex; align-items: center; justify-content: center; color: #9db4cb; }
+.v8-av-now img { width: 100%; height: 100%; object-fit: cover; }
+.v8-cardfor-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 7px 2px; font-size: 12px; color: #5b6b81; }
+.v8-cardfor-row select {
+    flex: 1; max-width: 130px; border: 1px solid rgba(120,150,190,.2);
+    border-radius: 10px; padding: 5px 7px; background: #fff; color: #5b6b81; font-family: inherit; font-size: 11px;
+}
+.v8-env-to { margin-left: 6px; font-size: 10px; color: #6b87a8; opacity: .9; }
+.gm-invite { display: flex; gap: 8px; align-items: center; margin-bottom: 12px; }
+.mm-album-prev { position: relative; margin-top: 8px; width: 96px; height: 96px; border-radius: 12px; overflow: hidden; }
+.mm-album-prev img { width: 100%; height: 100%; object-fit: cover; }
+.mm-album-prev button {
+    position: absolute; top: 4px; right: 4px; border: none; border-radius: 50%;
+    width: 20px; height: 20px; background: rgba(0, 0, 0, .45); color: #fff; cursor: pointer; font-size: 10px;
+}
+#gm-owned-tab { white-space: nowrap; }
+
+/* 主页第二页的经期组件 */
+.home-page[data-hx-page="2"] #hg-card-period2 { margin-top: 0; }
+
+/* emoji 字体兜底（手机端彩色 emoji） */
+.hg-mood-emoji, .v8-mood-now, .v8-mood-cell, .hx-item-av, .v8-mj-emoji, .v8-mj-cell {
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Android Emoji", sans-serif;
+}
+/* 主页音乐组件按钮更清楚 */
+.hg-music-ctrls { gap: 6px; }
+.hg-music-ctrls button { width: 24px; height: 24px; font-size: 10.5px; }
+
+
+/* ============================================================
+   v9 收尾：测试 / 禁言 / 心情手账两人 / 给谁用 / 组件网格统一
+   ============================================================ */
+
+/* 15：顶栏不再有 ʚ𝑳𝑶𝑽𝑬ɞ，右侧按钮仍靠右 */
+.home-app-name { display: none; }
+.home-topbar-right { margin-left: auto; }
+
+/* 14：除顶部三块外，其余小组件一行 4 个、一页两行，大小统一，略微缩小一点点 */
+.hg-widgets { grid-template-columns: repeat(4, 1fr); gap: 12px 9px; }
+.hg-widget { gap: 6px; }
+.hg-widget-tile .hg-tile-ico { font-size: 24px; }
+.hg-widget-tile .hg-tile-ico img { width: 31px; height: 31px; }
+.hg-widget-label { font-size: 11px; }
+.hg-row2 { grid-template-columns: 1fr 1fr; gap: 12px; }
+.hg-row2 > div { min-width: 0; }
+.hg-row2 .hg-card { height: 100%; min-height: 104px; }
+.home-page[data-hx-page="1"] #hg-card-together,
+.home-page[data-hx-page="2"] #hg-card-together2 { min-height: 0; }
+
+/* 13：测试面板 */
+.hx-test-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.hx-test-item {
+    display: flex; align-items: center; gap: 8px; padding: 10px;
+    border: 1px solid rgba(120, 150, 190, .18); border-radius: 12px;
+    background: rgba(255, 255, 255, .62); color: #5b6b81;
+    font-size: 11.5px; text-align: left; cursor: pointer; font-family: inherit;
+    line-height: 1.35; transition: all .18s;
+}
+.hx-test-item:active { transform: scale(.97); }
+.hx-test-item i { color: #7d97b8; width: 16px; flex-shrink: 0; }
+.hx-test-sendrow { display: flex; gap: 8px; margin-top: 8px; }
+.hx-test-logline { font-size: 11px; color: #6b7a90; padding: 5px 2px; border-bottom: 1px dashed rgba(120, 150, 190, .15); }
+
+/* 17：禁言综合面板 */
+.v8-hm-act { flex-wrap: wrap; justify-content: flex-end; max-width: 200px; gap: 4px; }
+.v8-hm-mins { width: 56px; padding: 4px 6px; font-size: 11px; flex-shrink: 0; }
+
+/* 4：心情手账显示两个人 */
+.v8-mj-box { padding: 12px 14px 4px; }
+.v8-mj-title { font-size: 12px; font-weight: 700; color: #5b6b81; margin-bottom: 8px; }
+.v8-mj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.v8-mj-cell {
+    border: 1px solid rgba(120, 150, 190, .18); border-radius: 14px;
+    padding: 10px 8px; text-align: center; background: rgba(255, 255, 255, .58); cursor: pointer;
+}
+.v8-mj-cell.empty { opacity: .62; }
+.v8-mj-who { font-size: 11px; color: #6b7a90; font-weight: 600; }
+.v8-mj-emoji { font-size: 30px; line-height: 1.5; min-height: 44px; }
+.v8-mj-sub { font-size: 9.5px; color: #93a3b8; margin-bottom: 6px; }
+.v8-mj-cell img { width: 36px; height: 36px; object-fit: cover; border-radius: 8px; }
+.v8-mj-cell .hx-btn { font-size: 10.5px; padding: 6px 4px; }
+
+/* 6：昵称三个按钮一行 */
+.v8-nick-acts { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
+.v8-nick-acts .hx-btn { flex: 1; min-width: 88px; font-size: 11px; padding: 7px 6px; }
+
+/* 1 / 7：我发出的同意请求只显示等待，不占我的待办 */
+.v8-consent-wait { font-size: 11px; color: #7d97b8; }
+.v8-consent.from-me { opacity: .92; }
+.v8-consent-r { font-size: 11px; color: #6b87a8; }
+.v8-mood-img { width: 30px; height: 30px; object-fit: cover; border-radius: 8px; vertical-align: middle; }
+
+/* 12：emoji / 表情库每个条目的「给谁用」小标签 */
+.emoji-item, .sticker-item { position: relative; }
+.rl-for {
+    position: absolute; right: 2px; bottom: 2px; z-index: 3;
+    border: none; border-radius: 7px; padding: 1px 4px;
+    font-size: 8.5px; line-height: 1.4;
+    background: rgba(90, 125, 170, .82); color: #fff; cursor: pointer; opacity: .9;
+}
+
+/* 12：库级「给谁用」条（空库也能设置） */
+.rl-libfor {
+    display: flex; align-items: center; justify-content: space-between; gap: 8px;
+    grid-column: 1 / -1; padding: 9px 11px; margin-bottom: 10px;
+    border: 1px solid rgba(120, 150, 190, .18); border-radius: 12px;
+    background: rgba(255, 255, 255, .6); font-size: 11.5px; color: #5b6b81;
+}
+.rl-libfor i { color: #7d97b8; margin-right: 4px; }
+.rl-libfor select {
+    border: 1px solid rgba(120, 150, 190, .22); border-radius: 9px;
+    padding: 5px 7px; background: #fff; color: #5b6b81;
+    font-family: inherit; font-size: 11px; max-width: 130px;
+}
+
+.v8-hm-minwrap { display: inline-flex; align-items: center; gap: 2px; font-size: 10px; color: #8a94a6; flex-shrink: 0; }
+
+
+/* ===== v10：信箱「给…/来自…」 ===== */
+.v8-env-torow { display: flex; align-items: center; gap: 8px; margin: 8px 2px 4px; font-size: 12px; }
+.v8-env-tolabel { color: var(--text-secondary, #7b8798); flex-shrink: 0; font-weight: 600; }
+.v8-env-torow select { flex: 1; min-width: 0; border: 1px solid rgba(107,135,168,.28); border-radius: 9px; padding: 6px 8px; font-size: 12px; background: rgba(255,255,255,.75); color: #4a5568; }
+.v8-env-tohint { font-size: 10px; color: #9aa6b6; flex-shrink: 0; }
+button.v8-env-to { border: 1px solid rgba(107,135,168,.30); background: rgba(107,135,168,.10); border-radius: 7px; padding: 2px 6px; cursor: pointer; opacity: 1; line-height: 1.4; font-size: 10px; color: #6b87a8; }
+button.v8-env-to:hover { background: rgba(107,135,168,.20); }
+.v8-env-people { display: flex; flex-wrap: wrap; gap: 6px; }
+.v8-env-people .hx-btn { flex: 1; min-width: 88px; font-size: 11px; padding: 7px 6px; }
+/* ===== v10：他们之间互相禁言 ===== */
+.v8-pm-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.v8-pm-row .hx-input { flex: 1; min-width: 78px; padding: 5px 6px; font-size: 11px; }
+.v8-pm-x { font-size: 11px; color: #8a94a6; flex-shrink: 0; }
+.v8-pm-row .v8-hm-minwrap { flex-shrink: 0; }
+.v8-pm-row .hx-btn { flex-shrink: 0; font-size: 11px; padding: 6px 9px; }
+
+/* v10：禁言记录行在窄屏把按钮换到下一行，避免文字被压成竖排 */
+.v8-pm-item { flex-wrap: wrap; }
+.v8-pm-item .hx-item-main { flex: 1 1 100%; }
+.v8-pm-item .hx-item-act { flex: 1 1 100%; margin-top: 6px; }
+.v8-pm-item .hx-item-act .hx-btn { flex: 1; font-size: 11px; padding: 7px 6px; }
+
+
+/* ===== v11：聊天界面不再显示「待同意 / 禁言」标志（主页里已有入口） ===== */
+#v8-consent-fab, #v8-mute-fab, .gname-mute { display: none !important; }
+
+/* 同意卡片：我发出的靠右、他们发来的靠左，并标出发送方向 */
+.v8-consent.from-me { margin-left: auto; margin-right: 4px; background: rgba(233, 243, 255, .94); }
+.v8-consent.from-them { margin-left: 4px; margin-right: auto; }
+.v8-consent-dir {
+    font-size: 10px; line-height: 1.5; color: #7f93ac; margin-bottom: 6px;
+    padding-bottom: 5px; border-bottom: 1px dashed rgba(120, 150, 190, .22);
+}
+.v8-consent.from-me .v8-consent-dir { text-align: right; color: #6b87a8; }
+.v8-consent.from-them .v8-consent-dir { text-align: left; color: #b58598; }
+
+/* 主页组件文字：保证 ෆ / emoji 有字形回退 */
+@font-face {
+    font-family: 'HX-Sinhala';
+    src: url('../vendor/fonts/hx-sinhala.woff2') format('woff2');
+    font-display: swap;
+}
+.hg-widget-label {
+    font-family: 'HX-Sinhala', "Noto Color Emoji", "Apple Color Emoji", "Segoe UI Emoji",
+                 "Noto Sans Sinhala", "Noto Sans Symbols 2", sans-serif;
+}
+
+/* ===== v11：同意卡片所在系统消息解除「居中窄条」限制，让左右对齐生效 ===== */
+.system-message:has(.v8-consent) {
+    align-self: stretch;
+    max-width: 100%;
+    padding: 0 2px;
+    margin: 8px 0;
+    text-align: left;
+    letter-spacing: 0;
+    opacity: 1;
+    transform: none;
+    animation: none;
+}
+.system-message:has(.v8-consent)::before,
+.system-message:has(.v8-consent)::after { display: none; }
+
+/* ===== v14：禁言面板「禁言谁 / 申请解除谁」选择行 ===== */
+.v8-mk-row { display: flex; gap: 6px; align-items: center; }
+.v8-mk-row select.hx-input { flex: 1; min-width: 0; }
+.v8-mk-row input.hx-input { min-width: 0; }
+.v8-mk-unit { font-size: 11.5px; color: #8a94a6; flex: none; }
+.v8-mk-row .hx-btn { flex: none; padding: 7px 12px; font-size: 12px; }
+
+/* ===== v15：禁言面板的两个操作区，做成一眼能看见的操作卡 ===== */
+.v8-mk-op {
+    background: linear-gradient(180deg, #f3f9ff 0%, #e9f3ff 100%);
+    border: 1.5px solid #b9d5f3;
+    border-radius: 13px;
+    padding: 11px 12px 12px;
+    margin: 0 0 11px;
+    box-shadow: 0 4px 14px rgba(120, 155, 200, .12);
+}
+.v8-mk-op .hx-sec-title {
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    color: #2b5c90 !important;
+    margin-bottom: 3px !important;
+}
+.v8-mk-op .v8-mk-hint {
+    font-size: 11px;
+    color: #6f8bad;
+    line-height: 1.6;
+    margin: 0 0 9px;
+}
+.v8-mk-op select.hx-input {
+    background: #fff !important;
+    border: 1.5px solid #9dbfe4 !important;
+    border-radius: 9px !important;
+    height: 35px;
+    color: #1f4368;
+    font-weight: 600;
+    font-size: 12.5px;
+    padding: 0 8px;
+    appearance: auto;
+    -webkit-appearance: menulist;
+}
+.v8-mk-op input.hx-input {
+    background: #fff !important;
+    border: 1.5px solid #9dbfe4 !important;
+    border-radius: 9px !important;
+    height: 35px;
+    text-align: center;
+    color: #1f4368;
+    font-weight: 600;
+}
+.v8-mk-op .hx-btn.primary {
+    height: 35px;
+    padding: 0 14px;
+    font-size: 12.5px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.v8-mk-step {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background: #5b93cf;
+    color: #fff;
+    font-size: 10.5px;
+    font-weight: 700;
+    margin-right: 5px;
+    vertical-align: 1px;
+}
+
+/* ===== v15：禁言面板窄屏排版（状态文字一行、按钮下一行并排） ===== */
+.v8-hm-row { flex-wrap: wrap; align-items: flex-start; }
+.v8-hm-row .hx-item-main { flex: 1 1 100%; min-width: 0; }
+.v8-hm-row .hx-item-sub { white-space: normal; line-height: 1.5; }
+.v8-hm-row .hx-item-act.v8-hm-act {
+    flex: 1 1 100%;
+    max-width: none;
+    justify-content: flex-end;
+    margin-top: 7px;
+    gap: 6px;
+}
+.v8-mk-op input.hx-input {
+    padding: 0 6px !important;
+    box-sizing: border-box;
+}
+
+
+/* ===== v16：同意卡片旁边「用时时长」小字 ===== */
+.v8-consent-used {
+    font-size: 10px;
+    line-height: 1.4;
+    color: #9aa9bb;
+    margin-left: auto;
+    padding-left: 8px;
+    white-space: nowrap;
+    align-self: center;
+    letter-spacing: 0;
+}
+.v8-consent.from-me .v8-consent-used { color: #8ba6c4; }
+.v8-consent.from-them .v8-consent-used { color: #b9a0ad; }
+.v8-consent-b { align-items: center; }
+
+/* ===== v16：禁言面板「1 私聊 / 2 群聊」分组 ===== */
+.v8-mt-tabs {
+    display: flex;
+    gap: 8px;
+    margin: 0 0 12px;
+}
+.v8-mt-tab {
+    flex: 1;
+    padding: 9px 6px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1.5px solid #cfe0f2;
+    background: #f4f9ff;
+    color: #5c7fa6;
+    cursor: pointer;
+    transition: all .15s ease;
+}
+.v8-mt-tab.on {
+    background: linear-gradient(180deg, #5b93cf 0%, #4a82bd 100%);
+    color: #fff;
+    border-color: #4a82bd;
+    box-shadow: 0 3px 10px rgba(80, 130, 190, .28);
+}
+
+/* ============================================================
+   v17：主页1 / 主页2 组件网格尺寸完全统一
+   —— 四列等宽（minmax(0,1fr) 防止音乐组件的三个按钮把列撑宽）
+   —— 磁贴一律正方形、尺寸一致，行高对齐，标签不换行不撑宽
+   ============================================================ */
+.hg-widgets {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px 9px;
+    align-items: start;
+}
+.hg-widget { min-width: 0; }
+.hg-widget-tile {
+    width: 100%;
+    min-width: 0;
+    aspect-ratio: 1 / 1;
+    box-sizing: border-box;
+}
+.hg-widget-label {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.hg-music-ctrls { gap: 4px; padding: 0; }
+.hg-music-ctrls button { width: 21px; height: 21px; font-size: 9px; }
+.hg-widget-tile .hg-tile-ico { font-size: 24px; }
+.hg-widget-tile .hg-tile-ico img { width: 27px; height: 27px; }
+.home-page[data-hx-page="2"] .hg-widgets { margin-top: 2px; }

@@ -1,0 +1,65 @@
+/* ============================================================
+   toolbar-ext.css —— 本次工具栏调整与新增设置项
+   只新增规则，不改动任何原有布局样式
+   ============================================================ */
+
+/* ᕑᗢᓫ 属于加拿大原住民音节文字，多数手机没有该字形：内置一份 3 字子集字体 */
+@font-face {
+    font-family: 'SyllabicsFallback';
+    src: url('../vendor/fonts/syllabics.woff2') format('woff2');
+    font-display: swap;
+}
+.love-glyph {
+    font-family: 'SyllabicsFallback', 'Euphemia UCAS', 'Noto Sans Canadian Aboriginal', var(--font-family), sans-serif;
+}
+
+/* 顶部 ᕑᗢᓫ / 🫧 按钮适配 action-btn */
+.love-glyph-btn { width: auto; min-width: 32px; padding: 0 6px; }
+.love-glyph-btn .love-glyph { font-size: 15px; font-weight: 600; letter-spacing: -1px; transform: none; }
+.love-glyph-btn:hover .love-glyph { transform: none; }
+#love-panel-modal .modal-title .love-glyph { font-size: 16px; letter-spacing: -1px; }
+.hub-btn { width: auto; min-width: 32px; padding: 0 5px; }
+.hub-glyph { width: 20px; height: 20px; display: block; object-fit: contain; }
+
+/* 视频通话已移入 ᕑᗢᓫ，输入栏 / 收纳面板里不再重复显示 */
+#call-toolbar-btn, #collapsed-call-btn { display: none !important; }
+
+/* 🫧 联系人 · 群聊 聚合面板 */
+.hub-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
+.hub-item {
+    display: flex; align-items: center; gap: 11px; width: 100%;
+    padding: 12px 13px; border-radius: 12px; cursor: pointer;
+    border: 1px solid var(--border-color); background: var(--primary-bg);
+    color: var(--text-primary); font-family: var(--font-family); text-align: left;
+    transition: var(--transition);
+}
+.hub-item:hover { border-color: var(--accent-color); transform: translateY(-1px); }
+.hub-item-icon {
+    width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(var(--accent-color-rgb, 197, 164, 126), .16);
+    color: var(--accent-color); font-size: 16px;
+}
+.hub-item-txt { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.hub-item-txt b { font-size: 13px; font-weight: 600; }
+.hub-item-txt small { font-size: 10.5px; color: var(--text-secondary); }
+.hub-item > i { color: var(--text-secondary); font-size: 12px; flex-shrink: 0; }
+
+/* 底部间距：默认 10px，可在「设置 → 聊天设置 → 显示」调整 */
+.input-area-wrapper { padding-bottom: calc(env(safe-area-inset-bottom, 0px) + var(--chat-bottom-gap, 10px)); }
+.main-chat-area { padding-bottom: calc(70px + env(safe-area-inset-bottom, 0px) + var(--chat-bottom-gap, 10px)); }
+
+/* 数据管理里的「后台 / 锁屏说明」 */
+.push-faq-body { font-size: 12px; line-height: 1.85; color: var(--text-secondary); }
+.push-faq-body b { color: var(--text-primary); }
+.push-faq-body p { margin: 0 0 8px; }
+.push-faq-body ul { margin: 0 0 10px; padding-left: 18px; }
+.push-faq-body li { margin-bottom: 5px; }
+.push-faq-switch {
+    display: flex; align-items: center; gap: 9px; margin-top: 10px;
+    padding: 10px 12px; border-radius: 10px; cursor: pointer;
+    background: rgba(var(--accent-color-rgb, 197, 164, 126), .08);
+    border: 1px solid var(--border-color);
+}
+.push-faq-switch input { accent-color: var(--accent-color); width: 16px; height: 16px; flex-shrink: 0; }
+.push-faq-switch span { font-size: 12px; color: var(--text-primary); }

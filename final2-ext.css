@@ -1,0 +1,250 @@
+/* ============================================================
+   final2-ext.css —— 最终改造（仅新增，不覆盖原有布局）
+   1) 头像库「两人一组」配对卡片与新增表单
+   2) 聊天里的换头像申请卡片
+   3) 群聊「新增人物」与管理弹层
+   ============================================================ */
+
+/* ---------- 头像库：两人一组 ---------- */
+.alib-note {
+    font-size: 11px;
+    color: var(--text-secondary);
+    opacity: 0.85;
+    line-height: 1.65;
+    margin: -2px 0 10px;
+}
+.alib-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+.alib-pair-form {
+    background: var(--primary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 12px;
+    margin-bottom: 12px;
+}
+.alib-slot-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+.alib-slot {
+    position: relative;
+    flex: 1;
+    max-width: 118px;
+    aspect-ratio: 1 / 1;
+    border: 2px dashed var(--border-color);
+    border-radius: 14px;
+    background: var(--secondary-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: var(--transition);
+}
+.alib-slot:hover { border-color: var(--accent-color); }
+.alib-slot > span { font-size: 24px; color: var(--accent-color); line-height: 1; }
+.alib-slot > small { font-size: 11px; color: var(--text-secondary); }
+.alib-slot > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.alib-slot.filled { border-style: solid; border-color: var(--accent-color); }
+.alib-slot.filled > small {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.45); color: #fff;
+    text-align: center; padding: 3px 0; font-size: 10px;
+}
+.alib-form-acts { display: flex; gap: 8px; }
+.alib-form-acts .modal-btn { flex: 1; margin: 0; }
+
+.alib-pairs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+.alib-pair {
+    background: var(--primary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 10px 8px;
+    text-align: center;
+    min-width: 0;
+}
+.alib-pair.on {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(var(--accent-color-rgb, 197, 164, 126), 0.18);
+}
+.alib-pair-imgs { display: flex; justify-content: center; align-items: center; margin-bottom: 8px; }
+.alib-pair-imgs img,
+.alib-pair-imgs .alib-ph {
+    width: 50px; height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--secondary-bg);
+    background: var(--secondary-bg);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-secondary); font-size: 16px;
+}
+.alib-pair-imgs > * + * { margin-left: -12px; }
+.alib-pair-meta {
+    display: flex; flex-direction: column; gap: 2px;
+    font-size: 11px; color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+.alib-pair-meta b { font-size: 12px; color: var(--text-primary); }
+.alib-cur { color: var(--accent-color); font-weight: 600; }
+.alib-pair-acts { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
+.alib-mini {
+    border: 1px solid var(--border-color);
+    background: var(--secondary-bg);
+    color: var(--text-primary);
+    border-radius: 8px;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-family: var(--font-family);
+    cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+.alib-mini.primary {
+    background: rgba(var(--accent-color-rgb, 197, 164, 126), 0.14);
+    color: var(--accent-color);
+    border-color: transparent;
+}
+.alib-mini:hover { filter: brightness(1.08); }
+.alib-cur-tip { font-size: 11px; color: var(--accent-color); opacity: 0.85; }
+.alib-empty {
+    grid-column: 1 / -1;
+    font-size: 11.5px; color: var(--text-secondary);
+    padding: 14px 0; text-align: center;
+}
+
+/* ---------- 聊天里的换头像申请卡片 ---------- */
+.f2-sys {
+    background: var(--primary-bg);
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--accent-color);
+    border-radius: 12px;
+    padding: 10px 12px;
+    font-size: 12px;
+    line-height: 1.65;
+    color: var(--text-primary);
+}
+.f2-acts { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+.f2-btn {
+    border: 1px solid var(--border-color);
+    background: var(--secondary-bg);
+    color: var(--text-primary);
+    border-radius: 8px;
+    padding: 5px 12px;
+    font-size: 11.5px;
+    font-family: var(--font-family);
+    cursor: pointer;
+    transition: var(--transition);
+}
+.f2-btn.primary { background: var(--accent-color); color: #fff; border-color: transparent; }
+.f2-btn:hover { filter: brightness(1.08); }
+
+/* ---------- 群聊：新增人物 ---------- */
+.gp-add-person {
+    border: none; cursor: pointer;
+    padding: 4px 9px; border-radius: 8px;
+    font-size: 11px; font-family: var(--font-family);
+    background: rgba(var(--accent-color-rgb, 197, 164, 126), 0.14);
+    color: var(--accent-color);
+    display: inline-flex; align-items: center; gap: 4px;
+    white-space: nowrap;
+    transition: var(--transition);
+}
+.gp-add-person:hover { background: rgba(var(--accent-color-rgb, 197, 164, 126), 0.24); }
+.gp-item .gp-name { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.gp-tag {
+    font-size: 10px; font-weight: 400;
+    color: var(--text-secondary);
+    background: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px; padding: 1px 5px;
+    white-space: nowrap;
+}
+.gp-empty {
+    font-size: 12px; color: var(--text-secondary);
+    padding: 10px 0; line-height: 1.6;
+}
+
+.person-note {
+    font-size: 11px; color: var(--text-secondary);
+    line-height: 1.65; margin: -4px 0 12px;
+}
+.person-list { max-height: 230px; overflow-y: auto; margin-bottom: 12px; scrollbar-width: thin; }
+.person-row {
+    display: flex; align-items: center; gap: 10px;
+    padding: 9px 10px; margin-bottom: 8px;
+    background: var(--primary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+}
+.person-av {
+    width: 38px; height: 38px; flex-shrink: 0;
+    border-radius: 50%; overflow: hidden;
+    background: var(--secondary-bg);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-secondary); font-size: 14px;
+}
+.person-av img { width: 100%; height: 100%; object-fit: cover; }
+.person-info { flex: 1; min-width: 0; }
+.person-name {
+    font-size: 12.5px; font-weight: 600; color: var(--text-primary);
+    display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+}
+.person-tag {
+    font-size: 10px; font-weight: 400; color: var(--text-secondary);
+    border: 1px solid var(--border-color); border-radius: 6px; padding: 1px 5px;
+}
+.person-tag.main { color: var(--accent-color); border-color: transparent; background: rgba(var(--accent-color-rgb, 197, 164, 126), 0.14); }
+.person-sub { font-size: 10.5px; color: var(--text-secondary); margin-top: 3px; }
+.person-acts { display: flex; gap: 5px; flex-shrink: 0; }
+.person-mini {
+    border: 1px solid var(--border-color); background: var(--secondary-bg);
+    color: var(--text-primary); border-radius: 7px; padding: 3px 7px;
+    font-size: 10.5px; font-family: var(--font-family); cursor: pointer;
+}
+.person-mini.danger { color: #e05555; }
+
+.person-form {
+    background: var(--primary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 12px;
+    margin-bottom: 12px;
+}
+.person-avatar-row { display: flex; align-items: center; gap: 10px; margin: 10px 0 12px; }
+.person-avatar-preview {
+    width: 54px; height: 54px; flex-shrink: 0;
+    border-radius: 50%; overflow: hidden; cursor: pointer;
+    border: 2px dashed var(--border-color);
+    background: var(--secondary-bg);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent-color); font-size: 20px;
+}
+.person-avatar-preview img { width: 100%; height: 100%; object-fit: cover; }
+.person-avatar-row .modal-input { flex: 1; min-width: 0; margin: 0; }
+.person-label { display: block; font-size: 11px; color: var(--text-secondary); margin-bottom: 6px; }
+.person-textarea {
+    width: 100%; box-sizing: border-box;
+    background: var(--secondary-bg); color: var(--text-primary);
+    border: 1px solid var(--border-color); border-radius: 10px;
+    padding: 9px 10px; font-size: 12px; line-height: 1.6;
+    font-family: var(--font-family); resize: vertical;
+}
+.person-form-acts { display: flex; gap: 8px; margin-top: 12px; }
+.person-form-acts .modal-btn { flex: 1; margin: 0; }
+
+@media (max-width: 380px) {
+    .alib-pairs { grid-template-columns: 1fr; }
+    .alib-pair-imgs img, .alib-pair-imgs .alib-ph { width: 44px; height: 44px; }
+}
