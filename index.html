@@ -6,12 +6,17 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#000000">
+    <meta name="theme-color" content="#f4f8fc">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
 
     <title>传讯</title>
     <link rel="stylesheet" href="vendor/fa/css/all.min.css">
+    <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/svg+xml" href="vendor/emoji/1fae7.svg">
-    <link rel="apple-touch-icon" href="vendor/emoji/1fae7.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="vendor/icons/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="vendor/icons/icon-180.png">
     <meta name="apple-mobile-web-app-title" content="ʚ𝑳𝑶𝑽𝑬ɞ">
 
     <script src="vendor/js/localforage.min.js"></script>
@@ -23,9 +28,11 @@
     <link rel="stylesheet" href="css/final-ext.css">
     <link rel="stylesheet" href="css/toolbar-ext.css">
     <link rel="stylesheet" href="css/final2-ext.css">
-    <link rel="stylesheet" href="css/home-ext.css?v=17">
-    <link rel="stylesheet" href="css/v8-ext.css?v=17">
-    <link rel="stylesheet" href="css/v12-ext.css?v=17">
+    <link rel="stylesheet" href="css/home-ext.css?v=27">
+    <link rel="stylesheet" href="css/v8-ext.css?v=27">
+    <link rel="stylesheet" href="css/v12-ext.css?v=27">
+    <link rel="stylesheet" href="css/v22-ext.css?v=27">
+    <link rel="stylesheet" href="css/v28-ext.css?v=28">
 
     <style id="css-live-preview-style"></style>
 </head>
@@ -88,9 +95,6 @@
         <div class="header-motto"></div>
         <div class="header-inner">
          <div class="user-info">
-                <div id="partner-name" class="username">
-                    梦角
-                </div>
                 <div id="partner-avatar-container" class="avatar-container">
                     <div class="avatar" id="partner-avatar">
                         <i class="fas fa-user"></i>
@@ -101,8 +105,8 @@
                 </div>
             </div>
             <div class="header-actions" id="header-actions">
-                <!-- 单聊：两个头像中间的距离栏（由梦角自己设置） -->
-                <div id="distance-bar"><i class="fas fa-location-dot"></i><span id="distance-text">距离</span></div>
+                <!-- 单聊：两个头像中间的距离栏（由梦角自己设置）；v25-2 昵称固定在「距离」左右两边 -->
+                <div id="distance-bar"><span id="partner-name" class="username hx-dist-name left">梦角</span><span class="hx-dist-center"><i class="fas fa-location-dot"></i><span id="distance-text">距离</span></span><span id="my-name" class="username hx-dist-name right">我</span></div>
                 <!-- 群聊：顶部群名（替代所有功能键） -->
                 <div id="group-name-bar" title="群聊"><span class="gname-ico"><i class="fas fa-users"></i></span><span class="gname-txt">群聊</span></div>
                 <button id="hub-btn" class="action-btn hub-btn" title="联系人 · 群聊" style="display:none;"><img class="hub-glyph" src="vendor/emoji/1fae7.svg" alt="🫧"></button>
@@ -114,10 +118,6 @@
                 <button id="settings-btn" class="action-btn" title="设置" style="display:none;"><i class="fas fa-cog"></i></button>
             </div>
              <div class="user-info">
-                <div class="username" id="my-name">
-                    我
-                </div>
-               
                 <div id="my-avatar-container" class="avatar-container">
                     <div class="avatar" id="my-avatar">
                         <i class="fas fa-user"></i>
@@ -1435,6 +1435,8 @@
 
     <div class="modal" id="love-panel-modal">
         <div class="modal-content">
+            <!-- v24-4：八宫格也补一个 ← 返回键 -->
+            <button class="mf-fab mf-back-fab lp-grid-back" id="lp-grid-back" type="button" title="返回上一层 · 可拖动"><i class="fas fa-arrow-left"></i></button>
             <div class="modal-title">
                 <span class="love-glyph" style="margin-right:0;">ᕑᗢᓫ</span>
             </div>
@@ -2221,7 +2223,7 @@
     <!-- == 功能模块 == -->
     <script src="js/features/mood.js"></script>
     <script src="js/features/envelope.js"></script>
-    <script src="js/features/reply-library.js?v=17"></script>
+    <script src="js/features/reply-library.js?v=27"></script>
     <script src="js/features/theme-editor.js"></script>
     <script src="js/features/group-chat.js"></script>
     <script src="js/features/call.js"></script>
@@ -2229,17 +2231,19 @@
     <!-- == 合并模块 == -->
     <script src="js/games.js"></script> 
     <script src="js/features.js"></script> 
-    <script src="js/data.js?v=17"></script>
+    <script src="js/data.js?v=27"></script>
     <script src="js/onboarding.js"></script> 
     <script src="js/listeners.js"></script>
     <script src="js/app.js"></script>
     <script src="js/features/love-ext.js"></script>
-    <script src="js/features/social-ext.js?v=17"></script>
+    <script src="js/features/social-ext.js?v=27"></script>
     <script src="js/features/final-ext.js"></script>
     <script src="js/features/toolbar-ext.js"></script>
-    <script src="js/features/home-ext.js?v=17"></script>
+    <script src="js/features/home-ext.js?v=27"></script>
     <script src="js/features/final2-ext.js"></script>
-    <script src="js/features/v8-ext.js?v=17"></script>
-    <script src="js/features/v12-ext.js?v=17"></script>
+    <script src="js/features/v8-ext.js?v=27"></script>
+    <script src="js/features/v12-ext.js?v=27"></script>
+    <script src="js/features/v22-ext.js?v=27"></script>
+    <script src="js/v28-ext.js?v=28"></script>
 </body>
 </html>

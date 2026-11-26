@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>下载 chuanxun-final-v27.zip</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    background: #f5f5f7; font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    padding: 20px;
+  }
+  .card {
+    background: #fff; border-radius: 20px; padding: 30px 24px; text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,.08); max-width: 380px; width: 100%;
+  }
+  h1 { font-size: 17px; font-weight: 600; margin: 0 0 6px; color: #111; word-break: break-all; }
+  .sub { color: #999; font-size: 12px; margin: 0 0 22px; }
+  a.btn {
+    display: block; background: #111; color: #fff; text-decoration: none;
+    border-radius: 13px; padding: 15px; font-size: 15px; font-weight: 500;
+  }
+  a.btn:active { opacity: .82; }
+  .tip { color: #aaa; font-size: 11px; line-height: 1.75; margin: 16px 0 0; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>chuanxun-final-v27.zip</h1>
+    <p class="sub">完整版 · 60 个文件 · 约 1.1 MB</p>
+    <a id="dl" class="btn" href="chuanxun-final-v27.woff2" download="chuanxun-final-v27.zip">点这里下载</a>
+    <p class="tip">打开这个页面会自动开始下载；如果没反应，点上面的按钮即可。</p>
+  </div>
+  <script>
+    var fired = false;
+    function go() { if (fired) return; fired = true; document.getElementById('dl').click(); }
+    window.addEventListener('load', function () { setTimeout(go, 500); });
+  </script>
+</body>
+</html>
