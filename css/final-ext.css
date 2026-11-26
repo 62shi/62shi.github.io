@@ -1,0 +1,242 @@
+/* ============================================================
+   final-ext.css —— 决定 / 分享 / 一起听 的最终版样式
+   只作用于 ❥ 面板内部与聊天卡片，不改主界面布局
+   ============================================================ */
+
+/* 系统消息内放卡片时，解除原站「居中窄条」的限制 */
+.system-message:has(.fx-card),
+.system-message:has(.fx-share-wrap),
+.system-message:has(.fx-listen-card),
+.system-message.fx-sys {
+    max-width: 92%;
+    padding: 0;
+    margin: 10px auto;
+    text-align: left;
+    letter-spacing: 0;
+    opacity: 1;
+    transform: none;
+    animation: none;
+    font-size: 13px;
+    color: var(--text-primary);
+}
+.system-message.fx-sys::before,
+.system-message.fx-sys::after { display: none; }
+
+/* ---------- 通用小组件 ---------- */
+.fx-tabs { display: flex; gap: 6px; margin: 2px 0 12px; }
+.fx-tab {
+    flex: 1; padding: 8px 4px; font-size: 11.5px; cursor: pointer;
+    border: 1px solid var(--border-color); border-radius: 9px;
+    background: var(--primary-bg); color: var(--text-secondary);
+    transition: all .2s;
+}
+.fx-tab.on { background: var(--accent-color); color: #fff; border-color: var(--accent-color); font-weight: 600; }
+.fx-hint {
+    font-size: 11px; line-height: 1.65; color: var(--text-secondary);
+    background: rgba(var(--accent-color-rgb, 197, 164, 126), .08);
+    border: 1px dashed var(--border-color); border-radius: 8px;
+    padding: 8px 10px; margin-bottom: 10px;
+}
+.fx-empty { font-size: 11.5px; color: var(--text-secondary); text-align: center; padding: 12px 6px; opacity: .8; }
+.fx-input {
+    width: 100%; box-sizing: border-box; padding: 9px 11px; font-size: 12.5px;
+    border-radius: 9px; border: 1px solid var(--border-color);
+    background: var(--primary-bg); color: var(--text-primary);
+}
+.fx-input:focus { outline: none; border-color: var(--accent-color); }
+.fx-mini {
+    border: 0; background: transparent; color: var(--text-secondary);
+    font-size: 11px; cursor: pointer; padding: 3px 6px; border-radius: 6px;
+}
+.fx-mini:hover { background: var(--secondary-bg); color: var(--accent-color); }
+.fx-ghost {
+    display: block; width: 100%; margin: 6px 0 12px; padding: 9px;
+    font-size: 12px; cursor: pointer; border-radius: 9px;
+    border: 1px dashed var(--border-color); background: transparent; color: var(--accent-color);
+}
+.fx-send { width: 100%; margin-top: 12px; }
+.fx-pane { padding-bottom: 4px; }
+
+/* ---------- 决定：出题表单 ---------- */
+.fx-q {
+    border: 1px solid var(--border-color); border-radius: 10px;
+    padding: 10px; margin-bottom: 10px; background: var(--primary-bg);
+}
+.fx-qhead { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.fx-qhead b { font-size: 12px; color: var(--accent-color); }
+.fx-opts { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
+.fx-opt { display: flex; align-items: center; gap: 6px; }
+.fx-onum {
+    width: 18px; height: 18px; flex-shrink: 0; border-radius: 50%;
+    background: var(--secondary-bg); color: var(--text-secondary);
+    font-size: 10px; display: flex; align-items: center; justify-content: center;
+}
+.fx-opt .fx-input { flex: 1; }
+.fx-opt-del { font-size: 15px; line-height: 1; padding: 2px 7px; }
+.fx-qbar { display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-top: 9px; flex-wrap: wrap; }
+.fx-open { display: flex; align-items: center; gap: 5px; font-size: 10.5px; color: var(--text-secondary); cursor: pointer; }
+.fx-open input { accent-color: var(--accent-color); }
+.fx-inbox-title { font-size: 11px; color: var(--text-secondary); margin: 14px 0 6px; }
+.fx-inbox-row {
+    display: flex; align-items: center; gap: 8px; padding: 9px 10px; cursor: pointer;
+    border: 1px solid var(--border-color); border-radius: 9px; margin-bottom: 6px;
+    font-size: 11.5px; color: var(--text-primary); background: var(--primary-bg);
+}
+.fx-inbox-row i { color: var(--accent-color); }
+.fx-inbox-row span { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fx-inbox-row small { color: var(--text-secondary); font-size: 10px; }
+
+/* ---------- 决定：聊天卡片 ---------- */
+.fx-card {
+    border: 1px solid var(--border-color); border-radius: 14px;
+    background: var(--secondary-bg); padding: 12px 13px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .05);
+}
+.fx-chead {
+    display: flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 600;
+    color: var(--text-primary); padding-bottom: 9px; margin-bottom: 9px;
+    border-bottom: 1px solid var(--border-color);
+}
+.fx-chead i { color: #8f7fd6; }
+.fx-chead small { margin-left: auto; font-size: 10.5px; font-weight: 400; color: var(--text-secondary); }
+.fx-qitem { margin-bottom: 10px; }
+.fx-qt { font-size: 12.5px; font-weight: 600; color: var(--text-primary); line-height: 1.5; margin-bottom: 7px; }
+.fx-optbtn { display: flex; flex-wrap: wrap; gap: 6px; }
+.fx-optbtn button {
+    padding: 6px 12px; font-size: 11.5px; cursor: pointer; border-radius: 16px;
+    border: 1px solid var(--accent-color); background: var(--primary-bg); color: var(--accent-color);
+}
+.fx-optbtn button:hover { background: var(--accent-color); color: #fff; }
+.fx-or { font-size: 10px; color: var(--text-secondary); margin: 8px 0 5px; }
+.fx-answerbox { display: flex; gap: 6px; margin-top: 6px; }
+.fx-answerbox .fx-input { flex: 1; padding: 7px 9px; font-size: 11.5px; }
+.fx-answerbox button {
+    flex-shrink: 0; padding: 0 12px; font-size: 11.5px; cursor: pointer; border: 0;
+    border-radius: 9px; background: var(--accent-color); color: #fff;
+}
+.fx-ans {
+    font-size: 12px; color: var(--text-primary); background: var(--primary-bg);
+    border-radius: 9px; padding: 8px 10px; line-height: 1.5;
+}
+.fx-ans i { color: #3BC8A4; margin-right: 5px; }
+.fx-wait { font-size: 11px; color: var(--text-secondary); padding: 4px 0; }
+.fx-wait i { margin-right: 4px; }
+.fx-cfoot { font-size: 10.5px; color: var(--text-secondary); text-align: right; padding-top: 6px; border-top: 1px dashed var(--border-color); }
+
+/* ---------- 分享：预览与卡片（微信风格） ---------- */
+.fx-preview-label { font-size: 10.5px; color: var(--text-secondary); margin: 12px 0 6px; }
+.fx-preview { margin-bottom: 4px; }
+.fx-preview-empty { font-size: 11px; color: var(--text-secondary); text-align: center; padding: 14px 6px; border: 1px dashed var(--border-color); border-radius: 9px; }
+.fx-share-by { font-size: 10.5px; color: var(--text-secondary); margin: 0 0 6px 2px; }
+.fx-share-card {
+    display: flex; align-items: stretch; gap: 10px; text-decoration: none;
+    min-width: 210px; max-width: 330px; padding: 10px;
+    border: 1px solid var(--border-color); border-radius: 12px;
+    background: var(--primary-bg); box-shadow: 0 2px 10px rgba(0, 0, 0, .05);
+    transition: transform .15s, box-shadow .15s;
+}
+.fx-share-card:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(0, 0, 0, .09); }
+.fx-sh-main { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; }
+.fx-sh-title {
+    font-size: 13px; font-weight: 600; color: var(--text-primary); line-height: 1.45;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    word-break: break-all;
+}
+.fx-sh-desc { font-size: 10.5px; color: var(--text-secondary); margin-top: 5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fx-sh-cta { font-size: 10.5px; color: var(--accent-color); margin-top: 7px; }
+.fx-sh-cta i { margin-right: 3px; }
+.fx-sh-cover {
+    width: 62px; flex-shrink: 0; border-radius: 9px; color: #fff;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+    font-size: 19px;
+}
+.fx-sh-cover span { font-size: 9.5px; opacity: .95; letter-spacing: .5px; }
+.fx-sh-netease { background: linear-gradient(135deg, #f0615c, #d63a34); }
+.fx-sh-song    { background: linear-gradient(135deg, #f28b5b, #e0603c); }
+.fx-sh-xhs     { background: linear-gradient(135deg, #ff5c78, #e82046); }
+.fx-sh-bili    { background: linear-gradient(135deg, #63b7e8, #2a8fd0); }
+.fx-sh-douyin  { background: linear-gradient(135deg, #4a4a58, #16161f); }
+.fx-sh-video   { background: linear-gradient(135deg, #7c83d6, #4d55b5); }
+.fx-sh-wechat  { background: linear-gradient(135deg, #63c98a, #2fa463); }
+.fx-sh-article { background: linear-gradient(135deg, #9aa5b5, #6b7789); }
+.fx-sh-link    { background: linear-gradient(135deg, #9db8cf, #6f8ca6); }
+
+/* ---------- 一起听：历史与邀请卡 ---------- */
+.fx-lh { margin-top: 14px; border-top: 1px solid var(--border-color); padding-top: 12px; }
+.fx-lh-title { font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.fx-lh-title i { color: var(--accent-color); }
+.fx-lh-title small { font-size: 10px; font-weight: 400; color: var(--text-secondary); }
+.fx-lh-row {
+    display: flex; align-items: center; gap: 8px; padding: 8px 10px; cursor: pointer;
+    border: 1px solid var(--border-color); border-radius: 9px; margin-bottom: 6px;
+    font-size: 11.5px; color: var(--text-primary); background: var(--primary-bg);
+}
+.fx-lh-row:hover { border-color: var(--accent-color); }
+.fx-lh-row > i:first-child { color: var(--accent-color); }
+.fx-lh-row span { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fx-lh-row small { font-size: 10px; color: var(--text-secondary); }
+.fx-lh-play { font-size: 10px; color: var(--accent-color); }
+.fx-lh-invite { margin-top: 12px; }
+.fx-lh-invite .modal-btn { width: 100%; }
+.fx-listen-card .fx-chead i { color: #2ba184; }
+.fx-listen-body { display: flex; align-items: center; gap: 11px; margin-bottom: 11px; }
+.fx-listen-cover {
+    width: 48px; height: 48px; flex-shrink: 0; border-radius: 50%;
+    background: linear-gradient(135deg, #4dc4a0, #2ba184); color: #fff;
+    display: flex; align-items: center; justify-content: center; font-size: 18px;
+}
+.fx-listen-name { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+.fx-listen-sub { font-size: 10.5px; color: var(--text-secondary); margin-top: 3px; }
+.fx-listen-btn {
+    width: 100%; padding: 8px; font-size: 12px; cursor: pointer; border: 0;
+    border-radius: 9px; background: #2ba184; color: #fff;
+}
+.fx-listen-btn i { margin-right: 5px; }
+
+/* ---------- 窄屏 ---------- */
+@media (max-width: 380px) {
+    .fx-tab { font-size: 10.5px; padding: 7px 2px; }
+    .fx-share-card { min-width: 180px; }
+    .fx-sh-cover { width: 54px; }
+}
+
+/* 我出的题：只读选项标签 */
+.fx-opts-read { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 7px; }
+.fx-opts-read span {
+    font-size: 11px; padding: 4px 10px; border-radius: 14px;
+    background: var(--primary-bg); border: 1px dashed var(--border-color);
+    color: var(--text-secondary);
+}
+
+/* ---------- ❥ 面板：关闭按钮常驻可见 + 历史列表限高 ---------- */
+#love-panel-modal .modal-content { padding-bottom: 0; }
+#love-panel-modal .modal-buttons {
+    position: sticky;
+    bottom: 0;
+    z-index: 6;
+    margin-top: 8px;
+    padding: 10px 0 14px;
+    background: var(--secondary-bg);
+}
+#love-panel-modal #lp-body { min-height: 0; padding-bottom: 78px; }
+#fx-lh-list { max-height: 100px; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+
+/* 一起听：为容纳「历史 + 梦角点歌」适度收紧播放器高度（仅❥面板内） */
+#love-panel-modal .pl-cover { width: 68px; height: 68px; font-size: 23px; margin-bottom: 9px; }
+#love-panel-modal .pl-bar { margin: 12px 2px 4px; }
+#love-panel-modal .pl-ctrl { margin: 10px 0 8px; }
+#love-panel-modal .pl-big { width: 46px; height: 46px; font-size: 16px; }
+#love-panel-modal .pl-list { max-height: 110px; margin-top: 10px; }
+#love-panel-modal .pl-url { margin-top: 9px; padding-top: 8px; }
+#love-panel-modal .pl-invite { margin-top: 10px; }
+
+.fx-askbtn { margin: 0; padding: 8px; font-size: 11.5px; }
+.fx-lh-invite { margin-top: 8px; }
+.fx-lh { margin-top: 12px; }
+/* 进一步压缩，让「最近一起听」在常见手机高度内露出 */
+#love-panel-modal .pl-url { margin-top: 6px; padding-top: 6px; }
+#love-panel-modal .pl-url label { margin-bottom: 4px; font-size: 10.5px; }
+#love-panel-modal .pl-list { max-height: 92px; }
+#love-panel-modal .pl-sub { margin-top: 3px; }
+#love-panel-modal .fx-lh-title { margin-bottom: 6px; font-size: 11.5px; }
+#love-panel-modal .fx-lh { margin-top: 10px; padding-top: 9px; }
